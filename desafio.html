@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio número advinhação</title>
+    <style>
+        body {
+            background-color: #d3d3d3;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 0.8em;
+            padding-top: 5%;
+        }
+        h1, p {
+            font-size: 1.5em;
+        }
+        input {
+            display: block;
+            margin: 5px;
+        }
+        ul, li {
+            padding:2px;
+        }
+        hr {
+            border-style: solid;
+            border-color: rgba(153, 153, 153, 0.300);
+        }
+        #game {
+            width: 400px;
+            padding: 25px;
+            background-color: #ffffff;
+            box-shadow: 25px 25px 50px 5px #999;
+            margin: auto;
+        }
+        #trying, #results {
+            height: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Jogo de advinhação</h1>
+        <p><ul>
+            <li>Criar o programa</li>
+            <li>Criar o programa que limita 10 tentativas</li>
+            <li>Criar o programa que você digite quantos números você tem que descobrir, e o tamanho do quadrado.</li>
+        </ul></p>
+        <hr>
+            <div id="trying"></div>
+            <div id="results"></div>
+        x: <input type="text" id="xUser" placeholder="Digite um número em X">
+        y: <input type="text" id="yUser" placeholder="Digite um número em y">
+        <input type="button" value="Jogar!" onclick="play()">
+    
+    </div>
+    <script>
+    let trying = document.getElementById('trying')
+    let xRandom = parseInt(Math.random()*10)
+    let yRandom = parseInt(Math.random()*10)
+
+    console.log(xRandom)
+    console.log(yRandom)
+    let numberOfTry = 20
+    trying.innerHTML = `Você tem ${numberOfTry} tentativas.`
+
+
+        function play() {
+            let xUser = document.getElementById('xUser').value
+            let yUser = document.getElementById('yUser').value
+            let results = document.getElementById('results')
+
+            let distanceX = xUser - xRandom
+            let distanceY = yUser - yRandom
+
+            let calc = parseInt(Math.sqrt(distanceX*distanceX + distanceY*distanceY))
+
+
+            if (calc == 0) {results.innerHTML = "<strong>Você acertou!</strong>"}
+
+            else {
+                results.innerHTML = `Você está a: ${calc} ponto de distância`
+                numberTry()
+            }        
+        }
+
+        function numberTry() {            
+            numberOfTry--
+            trying.innerHTML = `Você tem ${numberOfTry} tentativas.`
+                if (numberOfTry <= 0 ) {
+                    trying.innerHTML = `Encerarram as tentativas!` 
+                    return
+                    //window.location.reload()
+                }
+            }
+               
+
+    </script>
+</body>
+</html>

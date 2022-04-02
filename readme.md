@@ -11,5 +11,5 @@
 
 ## :hammer: Funcionalidades do projeto
 
-- `Funcionalidade 1`: A Aplicação sorteia dois números de 0 a 9 para calcular um ponto
+- `Funcionalidade 1`: A aplicação sorteia dois números de 0 a 9 para calcular um ponto
 - `Funcionalidade 2`: Você deve acertar o ponto sorteado com dicas de aproximação
